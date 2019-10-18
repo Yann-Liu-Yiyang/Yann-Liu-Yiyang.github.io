@@ -14,9 +14,9 @@ nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
 
 # 博主
 author: true
-name: 'my name'
-NickName: 'lyy'
-webtitle: 'haha'
+name: 'name'
+NickName: 'nickname'
+webtitle: 'website'
 bio: 'nothing'
 about: true
 aboutyou: 'my introduction'
