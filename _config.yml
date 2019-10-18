@@ -1,8 +1,8 @@
 # Site settings 配置站点
-title: 'your awesome title'
-description: 'your web description'
-keywords: 'your web keywords, another keywords'
-url: 'https://abc.github.io' # your host
+title: 'yannのblog'
+description: 'nothing'
+keywords: 'nothing'
+url: 'https://yann-liu-yiyang.github.io/' # your host
 
 # nav 中文字符空格：&emsp;
 nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
@@ -14,12 +14,12 @@ nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
 
 # 博主
 author: true
-name: 'your awesome name'
-NickName: 'your awesome nickname'
-webtitle: 'your awesome webtitle'
-bio: 'your awesome bio'
+name: 'yann'
+NickName: 'yann'
+webtitle: 'yann'
+bio: 'yann'
 about: true
-aboutyou: 'your introduction'
+aboutyou: 'nothing'
 portraits: '/assets/profile.jpeg' # your portraits image file path
 
 # SNS
