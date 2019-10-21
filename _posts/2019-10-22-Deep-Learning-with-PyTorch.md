@@ -8,7 +8,7 @@ cover: '../assets/pytorch.jpg'
 subtitle: 'First part'
 ---
 
-#Deep Learning with PyTorch:A 60 Minute Blitz
+# Deep Learning with PyTorch:A 60 Minute Blitz
 
 ## 1. What is pytorch
 
@@ -28,7 +28,7 @@ import torch
 
 > 注：上一句话指为了避免某特性和当前版本不兼容，就从future模块中导入，一般指将py2中的某功能替换成py3中的函数，例如本句指 print_function：
 > ~~~python
-> 3#python2.7
+> #python2.7
 > print "hello"
 > #python3.6
 > print("hello")
@@ -108,7 +108,7 @@ torch.Size([5, 3])
 
 计算操作的语法有很多种
 
-#### 加法：语法1
+#### 加法：
 
 ~~~python
 x = torch.rand(5, 3)
@@ -128,7 +128,7 @@ print(y)
 
 > 注：任何一个会改变当前张量的函数都会有一个`_`后缀 例如：`x.copy_(y)` 和`x.t_()`都将使`x`改变
 
-####索引
+#### 索引
 
 可以使用NumPy中的索引操作
 
@@ -142,7 +142,7 @@ print(x[:, 1])
 tensor([0.8807, 0.3227, 0.2010, 0.3679, 0.6297])
 ```
 
-####改变张量的大小
+#### 改变张量的大小
 
 可以使用`torch.view`来改变一个张量的大小和形状
 
@@ -159,7 +159,7 @@ print(x.size(), y.size(), z.size())
 torch.Size([4, 4]) torch.Size([16]) torch.Size([2, 8])
 ~~~
 
-####item
+#### item
 如果有一个仅具有一个元素的张量，用`.item()`来得到一个python数字类型的值
 
 ~~~python
