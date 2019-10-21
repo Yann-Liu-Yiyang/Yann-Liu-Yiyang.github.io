@@ -20,7 +20,7 @@ webtitle: 'liu yiyangのblog'
 bio: 'blog'
 about: true
 aboutyou: 'cse undergraduate student in sustech'
-portraits: '/assets/profile.jpeg' # your portraits image file path
+portraits: '/assets/headportrait.jpg' # your portraits image file path
 
 # SNS
 SNS: false
