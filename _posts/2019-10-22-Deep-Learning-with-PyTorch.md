@@ -5,7 +5,7 @@ date:   2019-10-22 00:09:00 +0800
 tags: deeplearning
 color: rgb(123,45,45)
 cover: '../assets/pytorch.jpg'
-subtitle: 'First part'
+subtitle: 'pytorch官方教程'
 ---
 
 # Deep Learning with PyTorch:A 60 Minute Blitz
@@ -256,5 +256,5 @@ tensor([[1.4424, 1.9343, 1.4623],
 
 注意要下载对应版本且可在gpu上使用的cuda，这里就不再赘述了。
 
-
+## 2. AUTOGRAD: AUTOMATIC DIFFERENTIATION
 
