@@ -258,3 +258,92 @@ tensor([[1.4424, 1.9343, 1.4623],
 
 ## 2. AUTOGRAD: AUTOMATIC DIFFERENTIATION
 
+autograd包是pytorch 中所有神经网络的核心。该autograd软件包为Tensors上的所有操作提供自动微分。
+
+### 1、TENSOR
+
+torch.Tensor是包的核心类。如果将其属性 `.requires_grad` 设置为True，则会开始跟踪针对tensor的所有操作。当年完成所有计算的时候，你可以使用` .backward() ` 来自动计算所有的梯度，这个张量的所有梯度将会被保存到`.grad` 属性中。如果你想删除并且不再记录这些，可以调用`.detach（）` 方法。 
+
+为了避免占用内存或追踪历史，你也可以包装代码为`with torch.no_grad():` 这在评估模型的时候很有用，因为模型中可能又可以被训练的`requires_grad=True`参数，但我们并不需要
+
+还有一个类，这个类对于autograd的实现至关重要：Function
+
+Tensor 和 Function 相互连接并建立一个无环图，该图对完整的计算历史进行编码。每个Tensor都有一个`.grad_fn` 属性指代的一个建立这个Tensor的Function（若是用户建立的就是None）。
+
+如果你想计算梯度等，你可以调用`.backward()` 在一个Tensor上。如果Tensor仅一个数，你不用指定任何参数，但是如果有更多的数，你需要设置一个`gradient` 参数 ，和Tensor的大小形状相同。
+
+```
+import torch
+x = torch.ones(2, 2, requires_grad=True)
+y = x + 2
+print(y.grad_fn)
+```
+
+输出：
+
+```
+<AddBackward0 object at 0x0000019F22249F60>
+```
+
+`.requires_grad_()` 改变了一个已经存在的Tensor的 `requires_grad` 标志，默认是False
+
+```
+a = torch.randn(2, 2)
+a = ((a * 3) / (a - 1))
+print(a.requires_grad)
+a.requires_grad_(True)
+print(a.requires_grad)
+b = (a * a).sum()
+print(b.grad_fn)
+```
+
+输出：
+
+```
+False
+True
+<SumBackward0 object at 0x0000019F22249F60>
+```
+
+### 2、 Gradient 
+
+我们现在开始使用深度回溯。 
+
+```
+import torch
+x = torch.ones(2, 2, requires_grad=True)
+y = x + 2
+z = y * y * 3
+out = z.mean()
+out.backward()
+print(x.grad)
+```
+
+输出：
+
+```
+tensor([[4.5000, 4.5000],
+        [4.5000, 4.5000]])
+```
+
+```
+import torch
+x = torch.randn(3, requires_grad=True)
+
+y = x * 2
+while y.data.norm() < 1000:
+    y = y * 2
+    
+
+v = torch.tensor([0.1, 1.0, 0.0001], dtype=torch.float)
+y.backward(v)
+
+print(x.grad)
+```
+
+输出：
+
+```
+tensor([1.0240e+02, 1.0240e+03, 1.0240e-01])
+```
+
